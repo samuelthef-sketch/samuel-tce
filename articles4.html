@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Hiiii!!🤓">
+  <meta name="keywords" content="blog and sammy">
+  <meta name="author" content="Archive | Samuel Poblete">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f5f1">
+  <link rel="stylesheet" href="main.css">
+  <link rel="timeline" href="main2.css">
+  <link rel="shortcut icon" href="https://scontent.fcrk1-3.fna.fbcdn.net/v/t39.30808-6/569318227_815115171102910_6784695468377695367_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeHqVkKtxGbWXCPoPMbv6W9La9gLMJnOS_hr2Aswmc5L-IWg0742nI8Yp9Y2UMgLHmCBW_dUG2g_MeUYaIUabtAW&_nc_ohc=utqrP-50gysQ7kNvwGaYzC7&_nc_oc=AdlbKhGf2E5ic-njm9Ib2BqUk9IEPna9hcKCjRoul5t9QR7aFstddbsdiPvkqjJKf2k&_nc_zt=23&_nc_ht=scontent.fcrk1-3.fna&_nc_gid=3ErPb77U23QCBOb4ypfWVQ&oh=00_Afi8Zi9CG3ZF1oSZNwe5o_h9XQqp1i7LNb9qudI4dpWh-A&oe=691AAA09">
+  <title>Archive | Samuel Poblete</title>
+</head>
+
+<div class="cover-card table-cell table-middle">
+  
+  <a href="index.html" class="home-button">🏠 Home</a>
+
+  
+    
+  
+
+<body></body>>
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="table cover">
+        <div class="cover-card table-cell table-middle">
+          <a href="/">
+            <img src="https://scontent.fcrk1-1.fna.fbcdn.net/v/t39.30808-6/517363990_730828542864907_4400525093243365464_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEa5j9hTuwy6rWugeEslAVJ5z9vEUPV7I7nP28RQ9XsjhXto5WFBBcaEz1COuvv2WEMQwWZA-FoPFSYZPQLNwzs&_nc_ohc=TWCG7VnYcBkQ7kNvwHlWTs9&_nc_oc=AdkvrsP1pUMY66-om-4tC07aFtrvFnCdbMxPjUJI_7QvsjOwT1uSPZd_GqG2QRFLNmM&_nc_zt=23&_nc_ht=scontent.fcrk1-1.fna&_nc_gid=UiYGR2658L00LM8euoxpcA&oh=00_Afgd0aCHv4Fz9mHKtxBqy5SlGOrdHC2w6jhKKDLv0vcNwg&oe=691ABC18" alt="" class="avatar">
+          </a>
+          
+          <a href="/" class="author_name">Samuel Poblete</a>
+          <span class="author_job">i create stuff mwehehe</span>
+          <span class="author_bio mbm">Hiiii!!</span>
+          
+         <nav class="nav">
+  <ul class="nav-list">
+    <li class="nav-item"><a href="index.html">Home</a></li>
+    <li class="nav-item"><a href="home.html">Archive</a></li>
+    <li class="nav-item"><a href="categories.html">Categories</a></li>
+    <li class="nav-item"><a href="about.html">About Me</a></li>
+  </ul>
+</nav>
+
+
+          <script type="text/javascript">
+            function gen_mail_to_link(hs, subject) {
+              var lhs,rhs;
+              var p = hs.split('@');
+              lhs = p[0];
+              rhs = p[1];
+              document.write("<a class=\"social-link-item\" target=\"_blank\" href=\"mailto");
+              document.write(":" + lhs + "@");
+              document.write(rhs + "?subject=" + subject + "\"><i class=\"fa fa-fw fa-envelope\"></i><\/a>");
+            }
+          </script>
+          <div class="social-links">
+            <ul></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <body>
+  <div class="col s12 m9">
+      <div class="post-listing">
+        <article class="post-content">
+          <p class="post-meta">
+            <span class="post-date">29 JUNE 2025</span> •
+            <span class="reading time">5 minutes read</span>
+            <a class="post-cat" href="#">arduino</a>
+                        <span>/</span>
+            <a class="post-cat" href="#">loT & prototype</a>
+          </p>
+
+          <h1 class="post-title"> Clap Light Bulb</h1>
+          <p>This project is a sound-activated light control system that turns a light bulb ON or OFF when you clap your hands.
+It uses a sound sensor (microphone module) to detect the sound of a clap and a relay module to control the bulb.
+
+          <p><strong>Code:</strong></p>
+
+          <div class="code-box">
+<pre><code class="language-python">
+#define sensorPin 7
+#define relayPin 8
+
+// Variable to store the time when last event happened
+unsigned long lastEvent = 0;
+boolean relayState = false;  // Variable to store the state of relay
+
+void setup() {
+  pinMode(relayPin, OUTPUT);  // Set relay pin as an OUTPUT pin
+  pinMode(sensorPin, INPUT);  // Set sensor pin as an INPUT
+}
+
+void loop() {
+  // Read Sound sensor
+  int sensorData = digitalRead(sensorPin);
+
+  // If pin goes LOW, sound is detected
+  if (sensorData == LOW) {
+
+    // If 25ms have passed since last LOW state, it means that
+    // the clap is detected and not due to any spurious sounds
+    if (millis() - lastEvent > 25) {
+      //toggle relay and set the output
+      relayState = !relayState;
+      digitalWrite(relayPin, relayState ? HIGH : LOW);
+    }
+
+    // Remember when last event happened
+    lastEvent = millis();
+  }
+}
+
+</code></pre>
+</div>
+
+
+          <p><strong>Hmmmmmm</strong></p>
+          <ul>
+            <li>I use a relay module rated for my mains voltage and follow safety precautions when wiring mains loads.</li>
+            <li>Adjust timing thresholds (50 ms / 400 ms) if my clap timings differ.</li>
+          </ul>
+
+          
+          <h3 id="ui-sample">Diagram</h3>
+           <div class="sample-ui" style="display:flex; gap:18px; flex-wrap:wrap; margin-top:28px; align-items:flex-start;">
+            <figure style="flex:1; min-width:220px; text-align:center; margin:0;">
+<p><img src="https://raw.githubusercontent.com/samuelthef-sketch/photos/refs/heads/main/0fd1ba98-e1d1-4d58-a711-ded7ba458a46.png" alt="UI preview"></p>
+
+
+            
+              
+              <h3 id="ui-sample">Setup Relay</h3>
+           <div class="sample-ui" style="display:flex; gap:18px; flex-wrap:wrap; margin-top:28px; align-items:flex-start;">
+            <figure style="flex:1; min-width:220px; text-align:center; margin:0;">
+<p><img src="https://raw.githubusercontent.com/samuelthef-sketch/photos/refs/heads/main/FZQ324HHQ1E825E.webp" alt="UI preview"></p>
+
+<div></div>
+        </article>
+
+     
+        <footer class="post-footer" style="margin-top:28px; padding-top:18px; border-top:1px solid #eee;">
+          <div class="share">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mywebsite.com/project.html" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/" target="_blank"><i class="fa fa-music"></i></a>
+          </div>
+          <p>© 2024 Samuel Poblete</p>
+        </footer>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+  
+</span>
+
+    </span>
+
+  
+   <footer class="post-footer">
+          <div class="share">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mywebsite.com/flappybird.html" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/" target="_blank"><i class="fa fa-music"></i></a>
+          </div>
+         <footer class="footer">
+    <p>© 2024 Samuel Poblete</p>
+    <div class="social-share">
+      <a href="https://www.facebook.com/samuel.nash.poblete/" class="https://www.facebook.com/samuel.nash.poblete/">Facebook</a>
+      <a href="https://www.instagram.com/samuelxyc/" class="https://www.instagram.com/samuelxyc/">Instagram</a>
+      <a href="https://www.tiktok.com/@aosterlosam" class="https://www.tiktok.com/@aosterlosam">Tiktok</a>
+    </div>
+  </footer>
+</body>

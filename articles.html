@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Hiiii!!🤓">
+  <meta name="keywords" content="blog and sammy">
+  <meta name="author" content="Archive | Samuel Poblete">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f5f1">
+  <link rel="stylesheet" href="main.css">
+  <link rel="timeline" href="main2.css">
+  <link rel="shortcut icon" href="https://scontent.fcrk1-3.fna.fbcdn.net/v/t39.30808-6/569318227_815115171102910_6784695468377695367_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeHqVkKtxGbWXCPoPMbv6W9La9gLMJnOS_hr2Aswmc5L-IWg0742nI8Yp9Y2UMgLHmCBW_dUG2g_MeUYaIUabtAW&_nc_ohc=utqrP-50gysQ7kNvwGaYzC7&_nc_oc=AdlbKhGf2E5ic-njm9Ib2BqUk9IEPna9hcKCjRoul5t9QR7aFstddbsdiPvkqjJKf2k&_nc_zt=23&_nc_ht=scontent.fcrk1-3.fna&_nc_gid=3ErPb77U23QCBOb4ypfWVQ&oh=00_Afi8Zi9CG3ZF1oSZNwe5o_h9XQqp1i7LNb9qudI4dpWh-A&oe=691AAA09">
+  <title>Archive | Samuel Poblete</title>
+</head>
+
+<div class="cover-card table-cell table-middle">
+  
+  <a href="index.html" class="home-button">🏠 Home</a>
+
+  
+    
+  
+
+<body></body>>
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="table cover">
+        <div class="cover-card table-cell table-middle">
+          <a href="/">
+            <img src="https://scontent.fcrk1-1.fna.fbcdn.net/v/t39.30808-6/517363990_730828542864907_4400525093243365464_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEa5j9hTuwy6rWugeEslAVJ5z9vEUPV7I7nP28RQ9XsjhXto5WFBBcaEz1COuvv2WEMQwWZA-FoPFSYZPQLNwzs&_nc_ohc=TWCG7VnYcBkQ7kNvwHlWTs9&_nc_oc=AdkvrsP1pUMY66-om-4tC07aFtrvFnCdbMxPjUJI_7QvsjOwT1uSPZd_GqG2QRFLNmM&_nc_zt=23&_nc_ht=scontent.fcrk1-1.fna&_nc_gid=UiYGR2658L00LM8euoxpcA&oh=00_Afgd0aCHv4Fz9mHKtxBqy5SlGOrdHC2w6jhKKDLv0vcNwg&oe=691ABC18" alt="" class="avatar">
+          </a>
+          
+          <a href="/" class="author_name">Samuel Poblete</a>
+          <span class="author_job">i create stuff mwehehe</span>
+          <span class="author_bio mbm">Hiiii!!</span>
+          
+         <nav class="nav">
+  <ul class="nav-list">
+    <li class="nav-item"><a href="index.html">Home</a></li>
+    <li class="nav-item"><a href="home.html">Archive</a></li>
+    <li class="nav-item"><a href="categories.html">Categories</a></li>
+    <li class="nav-item"><a href="about.html">About Me</a></li>
+  </ul>
+</nav>
+
+
+          <script type="text/javascript">
+            function gen_mail_to_link(hs, subject) {
+              var lhs,rhs;
+              var p = hs.split('@');
+              lhs = p[0];
+              rhs = p[1];
+              document.write("<a class=\"social-link-item\" target=\"_blank\" href=\"mailto");
+              document.write(":" + lhs + "@");
+              document.write(rhs + "?subject=" + subject + "\"><i class=\"fa fa-fw fa-envelope\"></i><\/a>");
+            }
+          </script>
+          <div class="social-links">
+            <ul></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="col s12 m9">
+      <div class="post-listing">
+        <article class="post-content">
+          <p class="post-meta">
+            <span class="post-date">12 FEBRUARY 2024</span> •
+            <span class="reading time">10 minutes read</span>
+            <a class="post-cat" href="#">Python</a>
+            <span>/</span>
+            <a class="post-cat" href="#">Dev</a>
+          </p>
+
+          <h1 class="post-title"> Python Flappy Bird</h1>
+          <p>Back when I first started learning Python, I challenged myself to recreate one of my simple games
+             i know — <strong>Flappy Bird</strong>. It was the first time I experimented with libraries like <code>pygame</code>, and it taught me a lot about loops, kernel, and collision detection.</p>
+
+          <p><strong>Code:</strong></p>
+
+          <div class="code-box">
+<pre><code class="language-python">
+import pygame, random, time
+from pygame.locals import *
+
+# VARIABLES
+SCREEN_WIDHT = 400
+SCREEN_HEIGHT = 600
+SPEED = 20
+GRAVITY = 2.5
+GAME_SPEED = 15
+
+GROUND_WIDHT = 2 * SCREEN_WIDHT
+GROUND_HEIGHT = 100
+
+PIPE_WIDHT = 80
+PIPE_HEIGHT = 500
+
+PIPE_GAP = 150
+
+wing = 'assets/audio/wing.wav'
+hit = 'assets/audio/hit.wav'
+
+pygame.mixer.init()
+
+class Bird(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.images = [
+            pygame.image.load('assets/sprites/bluebird-upflap.png').convert_alpha(),
+            pygame.image.load('assets/sprites/bluebird-midflap.png').convert_alpha(),
+            pygame.image.load('assets/sprites/bluebird-downflap.png').convert_alpha()
+        ]
+        self.speed = SPEED
+        self.current_image = 0
+        self.image = self.images[self.current_image]
+        self.rect = self.image.get_rect()
+        self.rect[0] = SCREEN_WIDHT / 6
+        self.rect[1] = SCREEN_HEIGHT / 2
+
+    def update(self):
+        self.current_image = (self.current_image + 1) % 3
+        self.image = self.images[self.current_image]
+        self.speed += GRAVITY
+        self.rect[1] += self.speed
+
+    def bump(self):
+        self.speed = -SPEED
+
+class Pipe(pygame.sprite.Sprite):
+    def __init__(self, inverted, xpos, ysize):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load('assets/sprites/pipe-green.png').convert_alpha()
+        self.image = pygame.transform.scale(self.image, (PIPE_WIDHT, PIPE_HEIGHT))
+        self.rect = self.image.get_rect()
+        self.rect[0] = xpos
+        if inverted:
+            self.image = pygame.transform.flip(self.image, False, True)
+            self.rect[1] = -(self.rect[3] - ysize)
+        else:
+            self.rect[1] = SCREEN_HEIGHT - ysize
+        self.mask = pygame.mask.from_surface(self.image)
+
+    def update(self):
+        self.rect[0] -= GAME_SPEED
+
+class Ground(pygame.sprite.Sprite):
+    def __init__(self, xpos):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load('assets/sprites/base.png').convert_alpha()
+        self.image = pygame.transform.scale(self.image, (GROUND_WIDHT, GROUND_HEIGHT))
+        self.mask = pygame.mask.from_surface(self.image)
+        self.rect = self.image.get_rect()
+        self.rect[0] = xpos
+        self.rect[1] = SCREEN_HEIGHT - GROUND_HEIGHT
+
+    def update(self):
+        self.rect[0] -= GAME_SPEED
+
+def is_off_screen(sprite):
+    return sprite.rect[0] < -(sprite.rect[2])
+
+def get_random_pipes(xpos):
+    size = random.randint(100, 300)
+    pipe = Pipe(False, xpos, size)
+    pipe_inverted = Pipe(True, xpos, SCREEN_HEIGHT - size - PIPE_GAP)
+    return pipe, pipe_inverted
+
+pygame.init()
+screen = pygame.display.set_mode((SCREEN_WIDHT, SCREEN_HEIGHT))
+pygame.display.set_caption('Flappy Bird')
+
+BACKGROUND = pygame.image.load('assets/sprites/background-day.png')
+BACKGROUND = pygame.transform.scale(BACKGROUND, (SCREEN_WIDHT, SCREEN_HEIGHT))
+BEGIN_IMAGE = pygame.image.load('assets/sprites/message.png').convert_alpha()
+
+bird_group = pygame.sprite.Group()
+bird = Bird()
+bird_group.add(bird)
+
+ground_group = pygame.sprite.Group()
+for i in range(2):
+    ground = Ground(GROUND_WIDHT * i)
+    ground_group.add(ground)
+
+pipe_group = pygame.sprite.Group()
+for i in range(2):
+    pipes = get_random_pipes(SCREEN_WIDHT * i + 800)
+    pipe_group.add(pipes[0])
+    pipe_group.add(pipes[1])
+
+clock = pygame.time.Clock()
+begin = True
+
+while begin:
+    clock.tick(15)
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+        if event.type == KEYDOWN:
+            if event.key == K_SPACE or event.key == K_UP:
+                bird.bump()
+                pygame.mixer.music.load(wing)
+                pygame.mixer.music.play()
+                begin = False
+    screen.blit(BACKGROUND, (0, 0))
+    screen.blit(BEGIN_IMAGE, (120, 150))
+    if is_off_screen(ground_group.sprites()[0]):
+        ground_group.remove(ground_group.sprites()[0])
+        new_ground = Ground(GROUND_WIDHT - 20)
+        ground_group.add(new_ground)
+    bird.begin()
+    ground_group.update()
+    bird_group.draw(screen)
+    ground_group.draw(screen)
+    pygame.display.update()
+
+while True:
+    clock.tick(15)
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+        if event.type == KEYDOWN:
+            if event.key == K_SPACE or event.key == K_UP:
+                bird.bump()
+                pygame.mixer.music.load(wing)
+                pygame.mixer.music.play()
+    screen.blit(BACKGROUND, (0, 0))
+    if is_off_screen(ground_group.sprites()[0]):
+        ground_group.remove(ground_group.sprites()[0])
+        new_ground = Ground(GROUND_WIDHT - 20)
+        ground_group.add(new_ground)
+    if is_off_screen(pipe_group.sprites()[0]):
+        pipe_group.remove(pipe_group.sprites()[0])
+        pipe_group.remove(pipe_group.sprites()[0])
+        pipes = get_random_pipes(SCREEN_WIDHT * 2)
+        pipe_group.add(pipes[0])
+        pipe_group.add(pipes[1])
+    bird_group.update()
+    ground_group.update()
+    pipe_group.update()
+    bird_group.draw(screen)
+    pipe_group.draw(screen)
+    ground_group.draw(screen)
+    pygame.display.update()
+    if (pygame.sprite.groupcollide(bird_group, ground_group, False, False, pygame.sprite.collide_mask) or
+        pygame.sprite.groupcollide(bird_group, pipe_group, False, False, pygame.sprite.collide_mask)):
+        pygame.mixer.music.load(hit)
+        pygame.mixer.music.play()
+        time.sleep(1)
+        break
+</code></pre>
+</div>
+
+          <p><strong>It might look simple, but this project helped me understand real-time game loops and how every frame updates the position and physics of objects. Thanks to YouTube for tutorials hehe From this, I began exploring other projects using <strong>pygame</strong> and <strong>ipykernel</strong>.</p>
+        </article>
+        </div>
+
+<div class="sample-ui">
+  <img src="https://raw.githubusercontent.com/samuelthef-sketch/photos/refs/heads/main/Screenshot_1.png" alt="Sample UI">
+  <p>Sample UI</p>
+</div>
+        
+
+        
+        <footer class="post-footer">
+          <div class="share">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com/flappybird.html" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/" target="_blank"><i class="fa fa-music"></i></a>
+          </div>
+          <footer class="footer">
+    <p>© 2024 Samuel Poblete</p>
+    <div class="social-share">
+      <a href="https://www.facebook.com/samuel.nash.poblete/" class="https://www.facebook.com/samuel.nash.poblete/">Facebook</a>
+      <a href="https://www.instagram.com/samuelxyc/" class="https://www.instagram.com/samuelxyc/">Instagram</a>
+      <a href="https://www.tiktok.com/@aosterlosam" class="https://www.tiktok.com/@aosterlosam">Tiktok</a>
+    </div>
+  </footer>
+</body>
